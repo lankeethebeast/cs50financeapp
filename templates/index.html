@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    PORTFOLIO
+{% endblock %}
+
+{% block main %}
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th class="text-start">Symbol</th>
+                <th class="text-end">Shares</th>
+                <th class="text-end">Current Price</th>
+                <th class="text-end">Total Value</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for stocks in portfolio %}
+                <tr>
+                    <td class="text-start">{{ stocks.stock_symbol }}</td>
+                    <td class="text-end">{{ stocks.shares }}</td>
+                    <td class="text-end">{{ stocks.current_price }}</td>
+                    <td class="text-end">{{ stocks.total_value }}</td>
+                    <!-- <td class="text-end">{{ stocks.total_value if 'total_value' in stock else 'N/A' }}</td> -->
+
+                </tr>
+            {% endfor %}
+        </tbody>
+        <tfoot>
+            <tr>
+                <td class="border-0 fw-bold text-end" colspan="3">Cash</td>
+                <td class="border-0 text-end">{{ balance | usd }}</td>
+            </tr>
+            <tr>
+                <td class="border-0 fw-bold text-end" colspan="3">TOTAL</td>
+                <td class="border-0 text-end">{{ grand_total | usd }}</td>
+            </tr>
+        </tfoot>
+    </table>
+
+
+{% endblock %}

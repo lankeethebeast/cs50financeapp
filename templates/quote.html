@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    QUOTE
+{% endblock %}
+
+{% block main %}
+
+<h1>Get Stock Quote</h1>
+
+{% if error %}
+    <p style="color: red;">{{ error }}</p>
+{% endif %}
+
+<form action="/quote" method="post">
+    <div class="mb-3">
+        <input class="form-control mx-auto w-auto" type="text" name="symbol" id="symbol" required>
+    </div>
+    <button class="btn btn-primary" type="submit">Get Quote</button>
+</form>
+{% endblock %}

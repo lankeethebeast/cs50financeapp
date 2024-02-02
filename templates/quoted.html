@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    QUOTED
+{% endblock %}
+
+{% block main%}
+<!-- <h1>Stock Quote for {{ symbol }}</h1> -->
+    <p>A share of {{ symbol }} costs ${{ price }}</p>
+
+    <!-- Add additional information or options as needed -->
+
+    <form method="post">
+        <input type="hidden" name="symbol" value="{{ symbol }}">
+    </form>
+{% endblock %}

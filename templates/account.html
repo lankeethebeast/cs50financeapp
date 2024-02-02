@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    change password
+{% endblock %}
+
+    {% block main %}
+        <h1>Change Password</h1>
+
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <ul class="flash-messages">
+                    {% for message in messages %}
+                        <li>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+
+        <form action="/account" method="post" >
+            <div class="mb-3">
+                <input type="password" id="current password" class="form-control mx-auto w-auto" name="current_password" placeholder="current password" required>
+            </div>
+            <div class="mb-3">
+                <input type="password" id="new_password" class="form-control mx-auto w-auto" name="new_password" placeholder="new password"  required>
+            </div>
+            <div class="mb-3">
+                <input type="password" id="confirm_new_password" class="form-control mx-auto w-auto" name="confirm_new_password" placeholder="confirm new password" required>
+            </div>
+            <button type="submit">Change Password</button>
+        </form>
+
+    {% endblock%}
